@@ -1,0 +1,67 @@
+version: '3.7'
+
+services:
+  # Servicio de bases de datos
+  db:
+    image: ${MDB_IMAGE}
+    container_name: mariadb_c
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      mi_red:
+        ipv4_address: ${MDB_ADDRESS}
+    hostname: db_server
+
+  # Servicio de Wordpress
+  wordpress:
+    image: ${WP_IMAGE}
+    container_name: wordpress_c
+    restart: always
+    depends_on: ['db']
+    ports: ['80:80']
+    links: ['db:db']
+    volumes:
+      - './wp_data:/var/html/www'
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    networks:
+      mi_red:
+        ipv4_address: ${WP_ADDRESS}
+
+  # Sevicio phpMyAdmin
+  phpmyadmin:
+    image: ${PMA_IMAGE}
+    container_name: phpmyadmin_c
+    restart: always
+    depends_on: ['db']
+    ports: ['12000:80']
+    links: ['db:db']
+    environment:
+      - PMA_HOST=${PMA_HOST}
+      - PMA_USER=${PMA_USER}
+      - PMA_PASSWORD=${PMA_PASSWORD}
+    networks:
+      mi_red:
+        ipv4_address: ${PMA_ADDRESS}
+
+volumes:
+  db_data:
+    driver: local 
+
+networks:
+  mi_red:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: ${NET_ADDRESS}
+
