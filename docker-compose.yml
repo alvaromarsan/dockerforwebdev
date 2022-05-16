@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3'
 
 services:
   # Servicio de bases de datos
@@ -17,7 +17,6 @@ services:
     networks:
       mi_red:
         ipv4_address: ${MDB_ADDRESS}
-    hostname: db_server
 
   # Servicio de Wordpress
   wordpress:
@@ -56,8 +55,7 @@ services:
 
 volumes:
   db_data:
-    driver: local 
-
+  
 networks:
   mi_red:
     driver: bridge
