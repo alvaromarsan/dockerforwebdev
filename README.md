@@ -10,7 +10,6 @@ Se compone de:
 * Gestor de contenidos: Wordpress
 * Servidor de Base de Datos: MariaDB.
 * Aplicación para configurar la base de datos: phpMyAdmin
-* Aplicación web.
 
 ### Pre-requisitos 📋
 
