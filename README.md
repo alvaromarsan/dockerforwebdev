@@ -70,45 +70,6 @@ Una vez hemos completado los pasos anteriores ya estamos listos para comenzar a 
 
 En caso de no tener instalado ese spftware vaya la apartado de Instalación de los requisitos.
 
-### Instalación de Docker, Docker-Compose y Git🔧
-_Dí cómo será ese paso_
-
-```
-Da un ejemplo
-```
-
-_Y repite_
-
-```
-hasta finalizar
-```
-
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-## Despliegue 📦
-
-_Agrega notas adicionales sobre como hacer deploy_
-
 ## Autor ✒️
 
 **Álvaro Martínez Sánchez** - *Autor del Proyecto* - [alvaromarsan](https://github.com/alvaromarsan)
